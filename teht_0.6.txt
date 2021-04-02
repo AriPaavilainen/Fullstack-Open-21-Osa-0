@@ -1,0 +1,3 @@
+Kun käyttäjä painaa "Save"-nappulaa, niin käynnistyy <form>-elementin onsubmit-attribuutissa määritelty funktio. Tämä mm. lähettää käyttäjän kirjoittaman muistiinpanon palvelimelle json-muodossa.
+    selain -> palvelin: HTTP POST: https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    palvelin -> selain: status code 201 (created)

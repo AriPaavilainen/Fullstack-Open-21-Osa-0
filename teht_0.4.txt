@@ -1,0 +1,29 @@
+Kun käyttäjä painaa /exampleapp/notes sivulla "Save"-nappulaa, niin <form>-elementin tiedot lähetetään POST-metodilla osoitteeseen 
+/exampleapp/new_note (action="/new_note" ja method="POST")
+    selain -> palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+Osoitteen /exampleapp/new_note koodi tallentaa uuden muistiinpanon taulukkoon ja antaa selaimelle uudelleenohjauskäskyn osoitteeseen 
+/exampleapp/notes.
+    palvelin -> selain: HTTP statuskoodi 302 (uudelleenohjaus), osoite: /exampleapp/notes
+
+Selain lataa sivun /exampleapp/notes.
+    selain -> palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+    palvelin -> selain: notes
+
+Sivun /exampleapp/notes <head>-elementissä <link>-elementti, jossa määritellään ladattavaksi tyylitiedosto 
+/exampleapp/main.css.
+    selain -> palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    palvelin -> selain: main.css
+
+Seuraavaksi <head>-elementissä on <script>-elementti, jossa ladataan skriptitiedosto /exampleapp/main.js.
+    selain -> palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    palvelin -> selain: main.js
+
+Skriptitiedosto sisältää käskyn ladata palvelimelta tiedoston /exampleapp/data.json, joka sisältää muistiinpanotaulukon.
+    selain -> palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    palvelin -> selain: data.json
+
+Lisäksi serveriltä ladataan tiedosto favicon.ico, josta ei ole tarkempaa tietoa.
+    selain -> palvelin: HTTP GET: https://studies.cs.helsinki.fi/favicon.ico
+    palvelin -> selain: favicon.ico
+    
